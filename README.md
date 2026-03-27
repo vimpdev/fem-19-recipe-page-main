@@ -21,7 +21,7 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 ## 🔗 Links
 
 - 🌎 [Live site](https://vimpdev.github.io/fem-19-recipe-page-main/)
-<!-- - 📌 [Frontend Mentor Solution]() -->
+- 📌 [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/recipe-page-semantic-html-css-grid-and-bem-3BGgPPQkoU)
 
 ---
 
