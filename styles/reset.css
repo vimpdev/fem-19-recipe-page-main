@@ -1,0 +1,41 @@
+@layer reset {
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  body,
+  h1,
+  h2,
+  p,
+  ul,
+  ol {
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    padding-left: 0;
+  }
+
+  img {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px dotted var(--clr-state, currentColor);
+    outline-offset: 3px;
+  }
+}

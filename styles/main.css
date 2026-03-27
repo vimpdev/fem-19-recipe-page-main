@@ -1,0 +1,237 @@
+@layer reset, fonts, tokens, base, components, responsive;
+
+@import url('./reset.css') layer(reset);
+
+@layer fonts {
+  @font-face {
+    font-family: 'Outfit';
+    src: url('./../assets/fonts/outfit-vf.woff2') format('woff2');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 100 900;
+  }
+
+  @font-face {
+    font-family: 'Young Serif';
+    src: url('./../assets/fonts/young-serif-regular.woff2') format('woff2');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+
+@layer tokens {
+  :root {
+    --ff-body: 'Outfit', sans-serif;
+    --ff-heading: 'Young Serif', sans-serif;
+    --white: hsl(0, 0%, 100%);
+    --stone-100: hsl(30, 54%, 90%);
+    --stone-150: hsl(30, 18%, 87%);
+    --stone-600: hsl(30, 10%, 34%);
+    --stone-900: hsl(24, 5%, 18%);
+    --brown-800: hsl(14, 45%, 36%);
+    --rose-800: hsl(332, 51%, 32%);
+    --rose-50: hsl(330, 100%, 98%);
+    --fsz-100: .85rem;
+    --fsz-200: 1rem;
+    --fsz-300: 1.25rem;
+    --fsz-400: 1.75rem;
+    --fsz-500: clamp(2.25rem, 1.5rem + 3.2vw, 2.5rem);
+    --gap-100: .5rem;
+    --gap-200: 1rem;
+    --gap-300: 1.5rem;
+    --gap-400: 2rem;
+    --rad-100: .75rem;
+    --rad-200: 1.5rem;
+  }
+}
+
+@layer base {
+  body {
+    min-block-size: 100dvh;
+    display: grid;
+    place-items: center;
+
+    font-family: var(--ff-body);
+    font-size: 1rem;
+    background-color: var(--stone-100);
+    color: var(--stone-600);
+    line-height: 1.5;
+  }
+}
+
+@layer components {
+  .recipe {
+    background-color: var(--white);
+  }
+
+  .recipe__image {
+    margin-inline: auto;
+    block-size: clamp(10.6875rem, 45.6vw, 18.75rem);
+    object-fit: cover;
+  }
+
+  .recipe__content,
+  .recipe__intro,
+  .recipe__preparation,
+  .recipe__ingredients,
+  .recipe__instructions,
+  .recipe__nutrition,
+  .recipe__list {
+    display: grid;
+  }
+
+  .recipe__intro,
+  .recipe__ingredients,
+  .recipe__instructions,
+  .recipe__nutrition {
+    gap: var(--gap-300);
+  }
+
+  .recipe__content {
+    padding: 2.5em 2em;
+    gap: var(--gap-400);
+  }
+
+  .recipe__heading {
+    font-family: var(--ff-heading);
+    font-size: var(--fsz-500);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--stone-900);
+  }
+
+  .recipe__text {
+    font-size: var(--fsz-200);
+    font-weight: 400;
+  }
+
+  .recipe__preparation {
+    --clr-accent: var(--rose-800);
+
+    padding: 1.5em;
+    background-color: var(--rose-50);
+    border-radius: var(--rad-100);
+    gap: var(--gap-200);
+  }
+
+  .recipe__preparation-heading {
+    font-size: var(--fsz-300);
+    font-weight: 600;
+    color: var(--rose-800);
+  }
+
+  .recipe__heading--section {
+    font-family: var(--ff-heading);
+    font-size: var(--fsz-400);
+    font-weight: 400;
+    color: var(--brown-800);
+  }
+
+  .recipe__list {
+    padding-left: 1.5em;
+    gap: var(--gap-100);
+  }
+
+  .recipe__item {
+    padding-left: 1em;
+
+    &::marker {
+      color: var(--clr-accent, var(--brown-800));
+      font-weight: 700;
+    }
+  }
+
+  .recipe__instructions {
+    padding-block: 2em;
+    border-top: 1px solid var(--stone-150);
+    border-bottom: 1px solid var(--stone-150);
+  }
+
+  .recipe__table {
+    inline-size: 100%;
+    border-collapse: collapse;
+  }
+
+  .recipe__row {
+    border-bottom: 1px solid var(--stone-150);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    >* {
+      padding: .75em 2em;
+      text-align: left;
+    }
+
+    >*:first-child {
+      padding-inline-end: 0;
+    }
+
+    >*:last-child {
+      padding-inline-start: 0;
+    }
+
+    &:first-child>* {
+      padding-top: 0;
+    }
+
+    &:last-child>* {
+      padding-bottom: 0;
+    }
+  }
+
+  .recipe__label {
+    font-weight: 400;
+  }
+
+  .recipe__value {
+    font-weight: 700;
+    color: var(--brown-800);
+  }
+
+  .attribution {
+    padding-block: 2em;
+    font-size: var(--fsz-100);
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .attribution__link {
+    margin-inline: .3em;
+    font-weight: 700;
+    text-decoration: underline wavy;
+    text-underline-offset: 2px;
+    color: var(--rose-800);
+
+    &:is(:hover, :focus-visible) {
+      text-decoration: none;
+    }
+  }
+}
+
+@layer responsive {
+
+  @media (width >=41rem) {
+    .recipe {
+      margin-block: 7.6rem;
+      padding: 2.5em;
+      inline-size: clamp(38.5rem, 80.2vw, 45.95rem);
+      border-radius: var(--rad-200);
+    }
+
+    .recipe__image {
+      border-radius: var(--rad-100);
+    }
+
+    .recipe__content {
+      margin-top: 2.6rem;
+      padding: 0;
+    }
+
+    .attribution {
+      margin-top: -6rem;
+    }
+  }
+}
